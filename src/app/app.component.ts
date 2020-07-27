@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'img-up';
+  category:string;
+
+  constructor(private router:Router){}
+
+
+  display()
+  {
+    console.log(this.category);
+    this.router.navigate(['/catbook',this.category]);
+  }
+
+
 }

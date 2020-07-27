@@ -1,0 +1,73 @@
+
+
+<div class="container">
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <form style="line-height: normal;font-size: small;">
+        <div class="form-group">
+            <label for="image" class="form-control-label col-form-label col-form-label-sm">Book Cover:</label>
+            <input type="file" id="image" (change)="onFileChanged($event)" class="form-control form-control-sm" >
+        </div>
+        <img  [src]="retrievedImage" style="height: 100px;width: 100px;" >
+        <div class="form-group form-group-sm">
+            <label for="cat" class="form-control-label">Category :</label>
+            <input type="text" [(ngModel)]="book.category" [ngModelOptions]="{standalone: true}" id="cat"
+                [placeholder]="retrieveResonse.category" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="title" class="form-control-label">Title :</label>
+            <input type="text" [(ngModel)]="book.title" [ngModelOptions]="{standalone: true}" id="title"
+                [placeholder]="retrieveResonse.title" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label for="a" class="form-control-label">Author :</label>
+            <input type="text" [(ngModel)]="book.author" [ngModelOptions]="{standalone: true}" id="a"
+                [placeholder]="retrieveResonse.author" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label for="des" class="form-control-label">Description :</label>
+            <textarea id="des" rows="4" cols="50" [(ngModel)]="book.description" [placeholder]="retrieveResonse.description"
+                class="form-control  form-control-sm" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="isbnNumber" class="form-control-label">ISBN number :</label>
+            <input type="number" id="isbnNumber" [(ngModel)]="book.isbnNumber" [placeholder]="retrieveResonse.isbnNumber"
+                [ngModelOptions]="{standalone: true}" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label for="price" class="form-control-label"> Price :</label>
+            <input type="number" id="price" [(ngModel)]="book.price" [placeholder]="retrieveResonse.price"
+                [ngModelOptions]="{standalone: true}" class="form-control  form-control-sm" />
+        </div>
+        <br>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert">
+        <strong>Sucessful!</strong> Book details of modified.
+        <button (click)="closeAlert()"  type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+        <button type="submit" class="btn btn-outline-success btn-sm" (click)="editImage()" >Save</button></div>
+        <div class="col-md-2">
+        <button type="submit" class="btn btn-outline-danger btn-sm">Cancel</button></div>
+    </div>
+        </div>
+    </form>
+          <br><br><br><br>
+</div>
+</div>
+
+    <p *ngIf="message">{{message}}</p>
+
+
+
+
+</div>
+
+
+
+

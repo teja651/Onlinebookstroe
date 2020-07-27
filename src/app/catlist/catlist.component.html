@@ -1,0 +1,86 @@
+
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div *ngIf=retrievedImage>
+
+            <div class="row"></div>
+            <div class="row">
+
+                <div class="col-sm-3" *ngFor="let i of retrievedImage;let j=index">
+
+                    <div class="card mb-4 shadow-sm">
+
+
+
+                        <img class="bd-placeholder-img card-img-top" height="150px" width="100%" [src]="i">
+
+                        <div class="card-body">
+
+
+                            {{retrieveResponse[j].price|currency}}
+                            <br><br>
+
+                            <div class="table-responsive" style="height: 10%;">
+                                <table class="table table-striped" style="height:10% ;" >
+                                    <tbody style="line-height:5px;font-size: small;">
+                                        <tr style="color:brown;" >
+                                            <td>Title</td>
+                                            
+                                            <td>
+                                                <p class="card-text">{{retrieveResponse[j].author}}</p>
+                                            </td>
+                                        </tr>
+                                        <tr style="color:brown;font-weight: 400;">
+                                            <td>Author </td>
+                                            
+                                            <td>
+                                                <p class="card-text">{{retrieveResponse[j].author}}</p>
+                                            </td>
+                                        </tr>
+                                        <tr style="color:brown;font-weight: 400;">
+                                            <td>Category </td>
+                                            
+                                            <td>
+                                                <p class="card-text">{{retrieveResponse[j].category}}</p>
+                                            </td>
+                                        </tr>
+                                        <tr style="color:brown;font-weight: 400;">
+                                            <td>IsbnNumber </td>
+                                            
+                                            <td>
+                                                <p class="card-text">{{retrieveResponse[j].isbnNumber}}</p>
+                                            </td>
+                                        </tr>
+                                        <tr><div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <td>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="editpage(retrieveResponse[j].bookId)">Edit</button>
+                                            </td>
+                                            <td>    
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="delete(retrieveResponse[j].bookId)">Delete</button>
+                                        </td>
+                                        </div>
+            
+            
+                                        </div></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
